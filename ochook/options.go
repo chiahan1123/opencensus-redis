@@ -1,7 +1,7 @@
 package ochook
 
 import (
-	"github.com/go-redis/redis/v7"
+	"github.com/go-redis/redis/v8"
 	"go.opencensus.io/trace"
 )
 

@@ -5,8 +5,10 @@ opencensus hook for go-redis
 
 ```go
 import (
+    "context"
+
     "github.com/kit-x/opencensus-redis/ochook"
-    "github.com/go-redis/redis/v7"
+    "github.com/go-redis/redis/v8"
 )
 
 redisOpts := redis.Options{
@@ -18,5 +20,5 @@ traceOptions := []ochook.TraceOption{
 
 client := redis.NewClient(&redisOpts)
 client.AddHook(ochook.New(traceOptions...))
-client.Ping()
+client.Ping(context.Background())
 ```

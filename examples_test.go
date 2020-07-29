@@ -1,7 +1,9 @@
 package opencensus_redis
 
 import (
-	"github.com/go-redis/redis/v7"
+	"context"
+
+	"github.com/go-redis/redis/v8"
 	"github.com/kit-x/opencensus-redis/ochook"
 )
 
@@ -15,5 +17,5 @@ func Example_NewClient() {
 
 	client := redis.NewClient(&redisOpts)
 	client.AddHook(ochook.New(traceOptions...))
-	client.Ping()
+	client.Ping(context.Background())
 }
